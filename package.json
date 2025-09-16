@@ -11,5 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "overrides": {
+  "@rollup/rollup-android-arm64": "4.45.1"
+}
+
 }
