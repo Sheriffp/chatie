@@ -27,7 +27,7 @@ export const getMessagesByUserId = async (req, res) => {
 				{ senderId: id, receiverId: myId }
 			]
 		});
-		res.status(200).json( messages );
+		res.status(200).json(messages);
 	} catch (error) {
 		console.error(error);
 	}
@@ -38,6 +38,22 @@ export const sendMessage = async (req, res) => {
 		const { text, image } = req.body;
 		const { id: receiverId } = req.params;
 		const senderId = req.user._id;
+
+		if (!text && !image) {
+			return res
+				.status(400)
+				.json({ error: "Write something or upload an image" });
+		}
+
+		if (senderId.equals(receiverId)) {
+			return res
+				.status(400)
+				.json({ error: "You cannot send message to yourself" });
+		}
+		const receiverExist = User.exists({ _id: receiverId });
+		if (!receiverExist) {
+			return res.status(400).json({ error: "Receiver not found" });
+		}
 		let imageUrl;
 
 		if (image) {
