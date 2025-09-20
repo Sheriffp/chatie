@@ -13,7 +13,7 @@ const PORT = ENV.PORT;
 const NODE_ENV = ENV.NODE_ENV;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json(""));
 app.use(cookieParser)
 
 app.use("/api/auth", authRoutes);
