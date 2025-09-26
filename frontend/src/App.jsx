@@ -13,7 +13,7 @@ const App = () => {
 			<Routes>
 				<Route path='/' element={<ChatPage />} />
 				<Route path='/login' element={<LoginPage />} />
-				export <Route path='/signup' element={<SignupPage />} />
+				<Route path='/signup' element={<SignupPage />} />
 			</Routes>
 		</div>
 	);
