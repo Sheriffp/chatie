@@ -8,7 +8,7 @@ export const protectRoute = async (req, res, next) => {
 
 		if (!token) {
 			return res
-				.status(400)
+				.status(401)
 				.json({ error: "You are not authorized to view this page" });
 		}
 
@@ -16,7 +16,7 @@ export const protectRoute = async (req, res, next) => {
 
 		if (!decoded) {
 			return res
-				.status(400)
+				.status(401)
 				.json({ error: "You are not authorized to view this page" });
 		}
 
@@ -31,6 +31,6 @@ export const protectRoute = async (req, res, next) => {
 		next();
 	} catch (error) {
 		console.error(error, "Error in protect route middleware");
-		res.status(500).json({error:"Internal Server Error"})
+		res.status(500).json({ error: "Internal Server Error" });
 	}
 };

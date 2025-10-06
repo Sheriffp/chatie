@@ -74,6 +74,10 @@ export const login = async (req, res) => {
 	if (!email || !password) {
 		return res.status(400).json({ error: "All fields are required" });
 	}
+
+	if (!email.includes("@")) {
+		return res.status(400).json({ error: "Enter a valid email address" });
+	}
 	try {
 		const user = await User.findOne({ email });
 

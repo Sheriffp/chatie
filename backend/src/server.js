@@ -12,9 +12,9 @@ const __dirname = path.resolve();
 const PORT = ENV.PORT;
 const NODE_ENV = ENV.NODE_ENV;
 
-app.use(cors());
 app.use(express.json(""));
-app.use(cookieParser)
+app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
+app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
