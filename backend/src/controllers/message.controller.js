@@ -9,7 +9,7 @@ export const getMembers = async (req, res) => {
 			_id: { $ne: loggedInUserId }
 		}).select("-password");
 
-		res.status(200).json({ filteredUsers });
+		res.status(200).json( filteredUsers );
 	} catch (error) {
 		console.error(error, "Error in get members controller");
 		res.status(500).json({ error: "Internal Server Error" });
