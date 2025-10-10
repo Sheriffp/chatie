@@ -1,7 +1,7 @@
 const UsersLoading = () => {
 	return (
 		<div className='space-y-2'>
-			{[1, 2, 3].map(item => (
+			{[1, 2, 3,4,5,6,7].map(item => (
 				<div
 					key={item}
 					className='bg-slate-800/30 p-4 rounded-lg animate-pulse'

@@ -5,6 +5,7 @@ import ActiveTabSwitch from "../components/ActiveTabSwitch";
 import ChatList from "../components/ChatList";
 import ChatContainer from "../components/ChatContainer";
 import MembersList from "../components/MembersList";
+import NoConversation from "../components/NoConversation";
 
 const ChatPage = () => {
 	const { activeTab, selectedUser } = useChatStore();
@@ -20,7 +21,7 @@ const ChatPage = () => {
 					</div>
 				</div>
 				{/*right*/}
-				{selectedUser ? <ChatContainer /> : <div></div>}
+				{selectedUser ? <ChatContainer /> : <NoConversation/>}
 			</AnimatedBorder>
 		</div>
 	);
